@@ -29,6 +29,7 @@ function AddTodo(props) {
           autoComplete="off"
           autoFocus={true}
           placeholder="Eg. Buy apples"
+          required
         />
         <button
           type="submit"
