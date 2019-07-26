@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../index.css";
 import List from "./List.js";
 import AddTodo from "./AddTodo.js";
@@ -18,7 +18,7 @@ function Members() {
     }
   ];
 
-  const [todos, setTodo] = useState(usersTodo);
+  const [todos, setTodos] = useState(usersTodo);
   const [editing, setEditing] = useState(false);
   const initialFormState = { text: "", isComplete: null, id: null };
   const [currentUser, setCurrentUser] = useState(initialFormState);
@@ -26,11 +26,8 @@ function Members() {
   // Getting the prop from AddTodo component
   // and sets it's value to a new value within athe object
   const addToList = todo => {
-    //const newTodo = [...todo, { text }];
     todo.id = todos.length + 1;
-    console.log(todos.id);
-    setTodo([...todos, todo]);
-    //console.log(newTodo);
+    setTodos([...todos, todo]);
   };
 
   const completeTodo = index => {
@@ -38,10 +35,10 @@ function Members() {
     console.log(newTodo);
     if (newTodo[index].isComplete === false) {
       newTodo[index].isComplete = true;
-      setTodo(newTodo);
+      setTodos(newTodo);
     } else {
       newTodo[index].isComplete = false;
-      setTodo(newTodo);
+      setTodos(newTodo);
     }
   };
 
@@ -49,7 +46,8 @@ function Members() {
     console.log(index);
     const newTodo = [...todos];
     newTodo.splice(index, 1);
-    setTodo(newTodo);
+    setTodos(newTodo);
+    console.log(todos);
   };
 
   const updateTodo = todo => {
@@ -64,7 +62,7 @@ function Members() {
 
   const updateUser = (id, updateUser) => {
     setEditing(false);
-    setTodo(todos.map(user => (user.id === id ? updateUser : user)));
+    setTodos(todos.map(user => (user.id === id ? updateUser : user)));
   };
 
   return (
@@ -88,12 +86,22 @@ function Members() {
           <AddTodo addToList={addToList} updateTodo={updateTodo} />
         )}
         <div className="todo-background mx-auto p-6 m-10">
-          <List
-            todo={todos}
-            completeTodo={completeTodo}
-            deleteTodo={deleteTodo}
-            updateTodo={updateTodo}
-          />
+          {todos.length === 0 ? (
+            <h1>
+              No todos today?{" "}
+              <span role="img" aria-label="A party emoji">
+                🥳
+              </span>{" "}
+              Go out and have fun then!
+            </h1>
+          ) : (
+            <List
+              todo={todos}
+              completeTodo={completeTodo}
+              deleteTodo={deleteTodo}
+              updateTodo={updateTodo}
+            />
+          )}
         </div>
       </div>
       {/* Listing out the values in the todos in the List component */}
