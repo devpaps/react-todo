@@ -87,7 +87,7 @@ function Members() {
         ) : (
           <AddTodo addToList={addToList} updateTodo={updateTodo} />
         )}
-        <div className="todo-background w-full mx-auto p-6 m-10 sm:w-16 md:w-32 lg:w-full">
+        <div className="todo-background mx-auto p-6 m-10">
           <List
             todo={todos}
             completeTodo={completeTodo}
