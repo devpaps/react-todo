@@ -76,7 +76,7 @@ function Members() {
         {/* Passing the addToList function to the AddTodo component to get the value from the component */}
         {editing ? (
           <div>
-            <h1>Edit User</h1>
+            <h1 className="font-sans text-2xl pb-3 mtk3">Update your Todo</h1>
             <EditTodo
               editing={editing}
               setEditing={setEditing}
