@@ -14,19 +14,19 @@ function List({ todo, completeTodo, deleteTodo, updateTodo }) {
       </div>
       <div>
         <button
-          className="mx-2 bg-green-600 hover:bg-green-700 text-white font-semibold hover:text-white py-2 px-4 border border-green-600 hover:border-transparent rounded"
+          className="mx-2 bg-green-600 hover:bg-green-700 text-white font-semibold hover:text-white py-1 px-2  sm:py-1 sm:px-2 md:py-2 md:px-4 border border-green-600 hover:border-transparent rounded"
           onClick={() => completeTodo(index)}
         >
           Complete
         </button>
         <button
-          className="mx-2 bg-yellow-600 hover:bg-yellow-700 text-black font-semibold hover:text-black py-2 px-4 border border-yellow-600 hover:border-transparent rounded"
+          className="mx-2 bg-yellow-600 hover:bg-yellow-700 text-black font-semibold hover:text-black py-1 px-2  sm:py-1 sm:px-2 md:py-2 md:px-4 border border-yellow-600 hover:border-transparent rounded"
           onClick={() => updateTodo(todo, index)}
         >
           Update
         </button>
         <button
-          className="mx-2 bg-red-600 hover:bg-red-700 text-black font-semibold hover:text-black py-2 px-4 border border-red-600 hover:border-transparent rounded"
+          className="mx-2 bg-red-600 hover:bg-red-700 text-black font-semibold hover:text-black py-1 px-2  sm:py-1 sm:px-2 md:py-2 md:px-4 border border-red-600 hover:border-transparent rounded"
           onClick={() => deleteTodo(index)}
         >
           X

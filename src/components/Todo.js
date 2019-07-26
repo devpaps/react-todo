@@ -72,7 +72,7 @@ function Members() {
       <h1 className="font-sans text-6xl pt-5 pb-10 mtk2 text-center">
         Todo with React
       </h1>
-      <div className="w-full mx-auto">
+      <div className="w-full mx-auto px-3 md:px-5">
         {/* Passing the addToList function to the AddTodo component to get the value from the component */}
         {editing ? (
           <div>
