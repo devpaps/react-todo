@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 
 function AddTodo(props) {
-  const initialFromState = { text: "", isComplete: false, id: null };
+  const initialFromState = {
+    text: "",
+    isComplete: false,
+    id: null
+  };
   const [todo, setTodo] = useState(initialFromState);
 
   const handleSubmit = e => {
@@ -13,9 +17,19 @@ function AddTodo(props) {
   };
 
   const handleChange = event => {
-    const { name, value } = event.target;
-    setTodo({ ...todo, [name]: value });
+    setTodo({
+      ...todo,
+      text: event.target.value
+    });
   };
+
+  /* To handle multiple inputs: add a name="text" attribute to the input, and then 
+      const { name, value } = event.target; - destructuring the object
+      setTodo({ ...todo, [name]: value });
+      
+      Single input and no need for the name attribute on the input element
+      setTodo({ ...todo, text: event.target.value });
+   */
 
   return (
     <div className="container mx-auto text-center">
@@ -23,7 +37,6 @@ function AddTodo(props) {
         <input
           className="shadow appearance-none border rounded w-full py-2 mr-4 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           type="text"
-          name="text"
           value={todo.text}
           onChange={handleChange}
           autoComplete="off"

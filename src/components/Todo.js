@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../index.css";
 import List from "./List.js";
 import AddTodo from "./AddTodo.js";
@@ -6,7 +6,7 @@ import EditTodo from "./EditTodo";
 
 function Members() {
   const usersTodo = [
-    {
+    /*  {
       text: "My house",
       isComplete: false,
       id: 1
@@ -15,7 +15,7 @@ function Members() {
       text: "Eat apples",
       isComplete: true,
       id: 2
-    }
+    } */
   ];
 
   const [todos, setTodos] = useState(usersTodo);
@@ -23,11 +23,23 @@ function Members() {
   const initialFormState = { text: "", isComplete: false, id: null };
   const [currentUser, setCurrentUser] = useState(initialFormState);
 
+  const [storageValue, setstorageValue] = useState(
+    localStorage.getItem("myValueInLocalStorage") || ""
+  );
+
+  useEffect(
+    function() {
+      localStorage.setItem("Todo", storageValue);
+    },
+    [storageValue]
+  );
+
   // Getting the prop from AddTodo component
   // and sets it's value to a new value within athe object
   const addToList = todo => {
     todo.id = todos.length + 1;
     setTodos([...todos, todo]);
+    setstorageValue(JSON.stringify(todo));
   };
 
   const completeTodo = index => {
