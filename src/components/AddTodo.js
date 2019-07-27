@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 function AddTodo(props) {
-  const initialFromState = { text: "", isComplete: null, id: null };
+  const initialFromState = { text: "", isComplete: false, id: null };
   const [todo, setTodo] = useState(initialFromState);
 
   const handleSubmit = e => {

@@ -20,7 +20,7 @@ function Members() {
 
   const [todos, setTodos] = useState(usersTodo);
   const [editing, setEditing] = useState(false);
-  const initialFormState = { text: "", isComplete: null, id: null };
+  const initialFormState = { text: "", isComplete: false, id: null };
   const [currentUser, setCurrentUser] = useState(initialFormState);
 
   // Getting the prop from AddTodo component
