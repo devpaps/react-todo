@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "../index.css";
 import List from "./List.js";
 import AddTodo from "./AddTodo.js";
@@ -23,23 +23,11 @@ function Members() {
   const initialFormState = { text: "", isComplete: false, id: null };
   const [currentUser, setCurrentUser] = useState(initialFormState);
 
-  const [storageValue, setstorageValue] = useState(
-    localStorage.getItem("myValueInLocalStorage") || ""
-  );
-
-  useEffect(
-    function() {
-      localStorage.setItem("Todo", storageValue);
-    },
-    [storageValue]
-  );
-
   // Getting the prop from AddTodo component
   // and sets it's value to a new value within athe object
   const addToList = todo => {
     todo.id = todos.length + 1;
     setTodos([...todos, todo]);
-    setstorageValue(JSON.stringify(todo));
   };
 
   const completeTodo = index => {
@@ -82,7 +70,7 @@ function Members() {
       <h1 className="font-sans text-6xl pt-5 pb-10 mtk2 text-center">
         Todo with React
       </h1>
-      <div className="w-full mx-auto px-3 md:px-5">
+      <div className="w-full mx-auto px-5 md:px-5">
         {/* Passing the addToList function to the AddTodo component to get the value from the component */}
         {editing ? (
           <div>

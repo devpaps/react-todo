@@ -1,4 +1,5 @@
 import React from "react";
+import { FiEdit, FiCheck, FiTrash } from "react-icons/fi";
 
 function List({ todo, completeTodo, deleteTodo, updateTodo }) {
   return todo.map((todo, index) => (
@@ -7,30 +8,41 @@ function List({ todo, completeTodo, deleteTodo, updateTodo }) {
       key={index}
     >
       <div
-        className="todo mtk6 sm:mb-0 mb-3"
+        className="todo mtk6 sm:mb-0 mb-3 self-center"
         style={{ textDecoration: todo.isComplete ? "line-through" : "" }}
       >
-        <p className="mtk5">{todo.text}</p>
+        <p className="mtk5 text-center sm:text-left text-2xl break-words">
+          {todo.text}
+        </p>
       </div>
-      <div>
-        <button
-          className="mx-2 bg-green-600 hover:bg-green-700 text-white font-semibold hover:text-white py-1 px-2  sm:py-1 sm:px-2 md:py-2 md:px-4 border border-green-600 hover:border-transparent rounded"
-          onClick={() => completeTodo(index)}
-        >
-          Complete
-        </button>
-        <button
-          className="mx-2 bg-yellow-600 hover:bg-yellow-700 text-black font-semibold hover:text-black py-1 px-2  sm:py-1 sm:px-2 md:py-2 md:px-4 border border-yellow-600 hover:border-transparent rounded"
-          onClick={() => updateTodo(todo, index)}
-        >
-          Update
-        </button>
-        <button
-          className="mx-2 bg-red-600 hover:bg-red-700 text-black font-semibold hover:text-black py-1 px-2  sm:py-1 sm:px-2 md:py-2 md:px-4 border border-red-600 hover:border-transparent rounded"
-          onClick={() => deleteTodo(index)}
-        >
-          X
-        </button>
+      <div className="flex flex-col sm:flex-row">
+        <div style={{ margin: "0 0.5em" }}>
+          <button
+            className="bg-white text-gray-800 font-bold rounded border-b-2 border-green-500 hover:border-green-600 hover:bg-green-500 hover:text-white shadow-md py-2 px-6 inline-flex items-center"
+            onClick={() => completeTodo(index)}
+          >
+            <FiCheck style={{ marginRight: "0.5em" }} />
+            Complete
+          </button>
+        </div>
+        <div style={{ margin: "0 0.5em" }}>
+          <button
+            className="bg-white text-gray-800 font-bold rounded border-b-2 border-yellow-500 hover:border-yellow-600 hover:bg-yellow-500 hover:text-white shadow-md py-2 px-6 inline-flex items-center"
+            onClick={() => updateTodo(todo, index)}
+          >
+            <FiEdit style={{ marginRight: "0.5em" }} />
+            Update
+          </button>
+        </div>
+        <div style={{ margin: "0 0.5em" }}>
+          <button
+            className="bg-white text-gray-800 font-bold rounded border-b-2 border-red-500 hover:border-red-600 hover:bg-red-500 hover:text-white shadow-md py-2 px-6 inline-flex items-center"
+            onClick={() => deleteTodo(index)}
+          >
+            <FiTrash style={{ marginRight: "0.5em" }} />
+            Delete
+          </button>
+        </div>
       </div>
     </div>
   ));

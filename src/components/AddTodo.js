@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { FiPlus } from "react-icons/fi";
 
 function AddTodo(props) {
   const initialFromState = {
@@ -33,7 +34,7 @@ function AddTodo(props) {
 
   return (
     <div className="container mx-auto text-center">
-      <form onSubmit={handleSubmit} className="rounded flex">
+      <form onSubmit={handleSubmit} className="rounded block sm:flex">
         <input
           className="shadow appearance-none border rounded w-full py-2 mr-4 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           type="text"
@@ -46,8 +47,9 @@ function AddTodo(props) {
         />
         <button
           type="submit"
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold px-4 rounded focus:outline-none focus:shadow-outline"
+          className="flex items-center bg-blue-500 hover:bg-blue-700 text-white font-bold px-4 rounded focus:outline-none focus:shadow-outline w-full py-2 mt-5 sm:w-auto sm:mt-auto"
         >
+          <FiPlus style={{ marginRigth: "0.5em" }} />
           Add
         </button>
       </form>
