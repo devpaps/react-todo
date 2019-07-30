@@ -36,7 +36,7 @@ function AddTodo(props) {
     <div className="container mx-auto text-center">
       <form onSubmit={handleSubmit} className="rounded block sm:flex">
         <input
-          className="shadow appearance-none border rounded w-full py-2 mr-4 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          className="shadow appearance-none border rounded w-full sm:py-2 mr-4 sm:px-3 p-5 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           type="text"
           value={todo.text}
           onChange={handleChange}
@@ -47,7 +47,7 @@ function AddTodo(props) {
         />
         <button
           type="submit"
-          className="flex items-center bg-blue-500 hover:bg-blue-700 text-white font-bold px-4 rounded focus:outline-none focus:shadow-outline w-full py-2 mt-5 sm:w-auto sm:mt-auto"
+          className="flex items-center bg-blue-500 hover:bg-blue-700 text-white font-bold justify-center sm:px-4 rounded focus:outline-none focus:shadow-outline w-full sm:py-2 p-5 mt-5 sm:w-auto sm:mt-auto"
         >
           <FiPlus style={{ marginRigth: "0.5em" }} />
           Add
