@@ -1,15 +1,34 @@
 import React from "react";
 import "./App.css";
 import Todo from "./components/Todo";
+import Navigation from "./components/Navigation";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Login from "./components/Login";
+//import * as ROUTES from "./constants/routes";
 
-function App(props) {
+function App() {
   return (
-    <div className="w-full text-white">
-      <header className="App-header overlay darken">
+    <div className="w-full">
+      <div>
+        <Router>
+          <Navigation />
+          <Switch>
+            <Route path="/" exact component={Home} />
+            <Route path="/login" component={Login} />
+          </Switch>
+        </Router>
+      </div>
+    </div>
+  );
+}
+
+function Home() {
+  return (
+    <div className="w-full">
+      <header className="App-header overlay darken text-white">
         <Todo />
       </header>
     </div>
   );
 }
-
 export default App;

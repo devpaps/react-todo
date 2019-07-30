@@ -34,6 +34,7 @@ function AddTodo(props) {
 
   return (
     <div className="container mx-auto text-center">
+      <h1 className="font-sans text-2xl pb-3 mtk1 text-left">Add your todo</h1>
       <form onSubmit={handleSubmit} className="rounded block sm:flex">
         <input
           className="shadow appearance-none border rounded w-full sm:py-2 mr-4 sm:px-3 p-5 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
