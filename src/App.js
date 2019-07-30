@@ -4,6 +4,7 @@ import Todo from "./components/Todo";
 import Navigation from "./components/Navigation";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Login from "./components/Login";
+import Signup from "./components/Signup";
 //import * as ROUTES from "./constants/routes";
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
           <Switch>
             <Route path="/" exact component={Home} />
             <Route path="/login" component={Login} />
+            <Route path="/signup" component={Signup} />
           </Switch>
         </Router>
       </div>

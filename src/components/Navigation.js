@@ -6,9 +6,12 @@ const Navigation = () => (
     <Link to="/">
       <h1 className="text-4xl">CyberPunk Todos</h1>
     </Link>
-    <ul>
+    <ul className="flex">
+      <li className="mr-3">
+        <Link to="/login">Log In</Link>
+      </li>
       <li>
-        <Link to="/login">Log in</Link>
+        <Link to="/signup">Sign Up</Link>
       </li>
     </ul>
   </div>

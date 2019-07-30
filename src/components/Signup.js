@@ -1,12 +1,11 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 function Login() {
   return (
     <div className="flex overlay darken  items-center justify-center h-screen">
       <div className="w-full max-w-xs">
         <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
-          <h1 className="mb-6 text-2xl">Log in</h1>
+          <h1 className="mb-6 text-2xl">Sign up</h1>
           <div className="mb-4">
             <label
               className="block text-gray-700 text-sm font-bold mb-2"
@@ -53,14 +52,6 @@ function Login() {
             >
               Forgot Password?
             </a>
-          </div>
-          <div className="flex mt-10">
-            <p>
-              Don't have an account? &nbsp;
-              <Link to="/signup" className="font-bold text-blue-500 ">
-                Sign Up
-              </Link>
-            </p>
           </div>
         </form>
       </div>
